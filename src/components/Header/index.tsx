@@ -1,5 +1,4 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import { defaultTheme } from '../../styles/themes/default'
 import { Logo } from './Logo'
 import { Actions, CartContainer, HeaderContainer, Location } from './style'
 
@@ -9,11 +8,11 @@ export function Header() {
       <Logo />
       <Actions>
         <Location>
-          <MapPin weight="fill" color={defaultTheme['purple-neutral']} />
+          <MapPin weight="fill" />
           <span>Porto Alegre, RS</span>
         </Location>
         <CartContainer>
-          <ShoppingCart weight="fill" color={defaultTheme['yellow-dark']} />
+          <ShoppingCart weight="fill" />
         </CartContainer>
       </Actions>
     </HeaderContainer>
