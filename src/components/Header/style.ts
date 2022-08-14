@@ -34,7 +34,7 @@ export const Location = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 9.125rem;
+  max-width: 12rem;
   border-radius: 6px;
   padding: 0.5rem; /* 8px */
   gap: 4px;

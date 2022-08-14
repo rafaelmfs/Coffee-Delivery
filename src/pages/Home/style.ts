@@ -27,12 +27,17 @@ export const Intro = styled.div`
     font-weight: 800;
     font-size: 3rem;
     line-height: 130%;
+
+    color: ${(props) => props.theme['base-title']};
   }
 
   p {
     font-family: 'Roboto';
     font-size: 1.25rem;
     line-height: 130%;
+
+    color: ${(props) => props.theme['base-subtitle']};
+    margin-top: 1rem;
   }
 `
 
@@ -80,9 +85,3 @@ export const Icon = styled.div`
           background: ${props.theme['purple-neutral']};
         `}
 `
-
-export const CoffeeContainer = styled.section``
-
-export const FilterList = styled.nav``
-
-export const CoffeeList = styled.div``

@@ -1,15 +1,7 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import { CoffeeMenu } from './Components/CoffeeMenu'
 import { Illustration } from './Components/Illustration'
-import { CoffeeCard } from './Components/CoffeeCard'
-import {
-  CoffeeContainer,
-  CoffeeList,
-  FilterList,
-  HomeContainer,
-  Icon,
-  Intro,
-  Items,
-} from './style'
+import { HomeContainer, Icon, Intro, Items } from './style'
 
 export function Home() {
   return (
@@ -50,42 +42,7 @@ export function Home() {
         </section>
         <Illustration />
       </Intro>
-      <CoffeeContainer>
-        <div>
-          <h2>Nossos cafés</h2>
-          <FilterList>
-            <ul>
-              <li>
-                <span>TRADICIONAL</span>
-              </li>
-              <li>
-                <span>ESPECIAL</span>
-              </li>
-              <li>
-                <span>COM LEITE</span>
-              </li>
-              <li>
-                <span>ALCOÓLICO</span>
-              </li>
-              <li>
-                <span>GELADO</span>
-              </li>
-            </ul>
-          </FilterList>
-        </div>
-        <CoffeeList>
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-        </CoffeeList>
-      </CoffeeContainer>
+      <CoffeeMenu />
     </HomeContainer>
   )
 }
