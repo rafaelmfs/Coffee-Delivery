@@ -15,25 +15,25 @@ export function Home() {
           </p>
           <Items>
             <div>
-              <Icon color="yellowDark">
+              <Icon color="yellow-dark">
                 <ShoppingCart weight="fill" />
               </Icon>
               <span>Compra simles e segura</span>
             </div>
             <div>
-              <Icon color="gray">
+              <Icon color="base-text">
                 <Package weight="fill" />
               </Icon>
               <span>Embalagem mantém o café intacto</span>
             </div>
             <div>
-              <Icon color="yellow">
+              <Icon color="yellow-neutral">
                 <Timer weight="fill" />
               </Icon>
               <span>Entrega rápida e rastreada</span>
             </div>
             <div>
-              <Icon color="purple">
+              <Icon color="purple-neutral">
                 <Coffee weight="fill" />
               </Icon>
               <span>O café chega fresquinho até você</span>

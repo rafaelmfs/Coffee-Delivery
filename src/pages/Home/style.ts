@@ -56,10 +56,10 @@ export const Items = styled.div`
   }
 `
 const ICONS_COLORS = {
-  yellowDark: 'yellow-dark',
-  yellow: 'yellow',
-  gray: 'gray',
-  purple: 'purple',
+  'yellow-dark': 'yellow-dark',
+  'yellow-neutral': 'yellow-neutral',
+  'base-text': 'base-text',
+  'purple-neutral': 'purple-neutral',
 }
 
 interface IconColors {
@@ -80,20 +80,20 @@ export const Icon = styled.div<IconColors>`
   color: ${(props) => props.theme.white};
 
   ${(props) =>
-    props.color === ICONS_COLORS.yellowDark
+    props.color === ICONS_COLORS['yellow-dark']
       ? css`
-          background: ${props.theme['yellow-dark']};
+          background: ${props.theme[ICONS_COLORS['yellow-dark']]};
         `
-      : props.color === ICONS_COLORS.yellow
+      : props.color === ICONS_COLORS['yellow-neutral']
       ? css`
-          background: ${props.theme['yellow-neutral']};
+          background: ${props.theme[ICONS_COLORS['yellow-neutral']]};
         `
-      : props.color === ICONS_COLORS.gray
+      : props.color === ICONS_COLORS['base-text']
       ? css`
-          background: ${props.theme['base-text']};
+          background: ${props.theme[ICONS_COLORS['base-text']]};
         `
-      : props.color === ICONS_COLORS.purple &&
+      : props.color === ICONS_COLORS['purple-neutral'] &&
         css`
-          background: ${props.theme['purple-neutral']};
+          background: ${props.theme[ICONS_COLORS['purple-neutral']]};
         `}
 `
