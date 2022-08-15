@@ -55,7 +55,18 @@ export const Items = styled.div`
     align-items: center;
   }
 `
-export const Icon = styled.div`
+const ICONS_COLORS = {
+  yellowDark: 'yellow-dark',
+  yellow: 'yellow',
+  gray: 'gray',
+  purple: 'purple',
+}
+
+interface IconColors {
+  color: keyof typeof ICONS_COLORS
+}
+
+export const Icon = styled.div<IconColors>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,19 +80,20 @@ export const Icon = styled.div`
   color: ${(props) => props.theme.white};
 
   ${(props) =>
-    props.color === 'yellow-dark'
+    props.color === ICONS_COLORS.yellowDark
       ? css`
           background: ${props.theme['yellow-dark']};
         `
-      : props.color === 'yellow'
+      : props.color === ICONS_COLORS.yellow
       ? css`
           background: ${props.theme['yellow-neutral']};
         `
-      : props.color === 'gray'
+      : props.color === ICONS_COLORS.gray
       ? css`
           background: ${props.theme['base-text']};
         `
-      : css`
+      : props.color === ICONS_COLORS.purple &&
+        css`
           background: ${props.theme['purple-neutral']};
         `}
 `

@@ -28,15 +28,6 @@ export function CoffeeMenu() {
       </div>
       <CoffeeList>
         <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
       </CoffeeList>
     </CoffeeContainer>
   )

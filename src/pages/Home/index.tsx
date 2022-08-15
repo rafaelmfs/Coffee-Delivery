@@ -15,7 +15,7 @@ export function Home() {
           </p>
           <Items>
             <div>
-              <Icon color="yellow-dark">
+              <Icon color="yellowDark">
                 <ShoppingCart weight="fill" />
               </Icon>
               <span>Compra simles e segura</span>
@@ -33,7 +33,7 @@ export function Home() {
               <span>Entrega rápida e rastreada</span>
             </div>
             <div>
-              <Icon>
+              <Icon color="purple">
                 <Coffee weight="fill" />
               </Icon>
               <span>O café chega fresquinho até você</span>
