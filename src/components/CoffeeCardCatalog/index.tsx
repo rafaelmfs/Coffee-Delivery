@@ -1,7 +1,8 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { Card, Counter } from './style'
+import { ShoppingCart } from 'phosphor-react'
+import { Counter } from '../Counter'
+import { Card } from './style'
 
-export function CoffeeCard() {
+export function CoffeeCardCatalog() {
   return (
     <Card>
       <img src="/src/assets/coffee/Americano.svg" alt="" />
@@ -17,15 +18,7 @@ export function CoffeeCard() {
           R$ <strong className="price">9.90</strong>
         </span>
         <div className="actions">
-          <Counter>
-            <button>
-              <Plus weight="bold" />
-            </button>
-            <span>1</span>
-            <button>
-              <Minus weight="bold" />
-            </button>
-          </Counter>
+          <Counter />
           <button className="cart">
             <ShoppingCart weight="fill" />
           </button>

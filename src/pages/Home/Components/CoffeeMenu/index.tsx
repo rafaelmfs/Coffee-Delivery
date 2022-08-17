@@ -1,4 +1,4 @@
-import { CoffeeCard } from './CoffeeCard'
+import { CoffeeCardCatalog } from '../../../../components/CoffeeCardCatalog'
 import { CoffeeContainer, CoffeeList, FilterList } from './style'
 
 export function CoffeeMenu() {
@@ -27,7 +27,7 @@ export function CoffeeMenu() {
         </nav>
       </div>
       <CoffeeList>
-        <CoffeeCard />
+        <CoffeeCardCatalog />
       </CoffeeList>
     </CoffeeContainer>
   )
