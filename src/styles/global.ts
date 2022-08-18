@@ -17,6 +17,17 @@ export const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'roboto', sans-serif;
     color: ${(props) => props.theme['base-text']};
+  }
 
+  @media (max-width: 1200px) {
+   html{
+    font-size: 80%;
+   } 
+  }
+
+  @media (max-width: 960px){
+    html{
+    font-size: 62.5%;
+   } 
   }
 `

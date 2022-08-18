@@ -35,12 +35,14 @@ export function Checkout() {
               <input type="text" placeholder="Rua" name="street" />
               <div>
                 <input type="number" placeholder="Número" name="number" />
-                <input
-                  type="text"
-                  placeholder="Complemento opcional"
-                  name="complement"
-                  className="complement-input"
-                />
+                <div className="complement-input">
+                  <input
+                    type="text"
+                    placeholder="Complemento"
+                    name="complement"
+                  />
+                  <span>Opcional</span>
+                </div>
               </div>
               <div>
                 <input type="text" placeholder="Bairro" name="district" />

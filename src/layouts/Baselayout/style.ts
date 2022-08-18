@@ -8,8 +8,4 @@ export const LayoutContainer = styled.div`
   max-width: 1440px;
   width: 80%;
   margin: 0 auto;
-
-  @media (max-width: 1044px) {
-    font-size: 62.5%;
-  }
 `

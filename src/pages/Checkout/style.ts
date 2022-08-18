@@ -38,7 +38,7 @@ export const CardDefault = styled.div<CardDefaultOptions>`
   padding: 2.5rem;
   border-radius: 6px;
   background-color: ${(props) => props.theme['base-card']};
-
+  width: auto;
   ${(props) =>
     props.radius &&
     css`
@@ -97,6 +97,7 @@ export const AddressForm = styled.form`
     flex: 1;
     border: 1px solid ${(props) => props.theme['base-button']};
     border-radius: 4px;
+    color: ${(props) => props.theme['base-text']};
     background: ${(props) => props.theme['base-input']};
   }
   input:first-child {
@@ -105,6 +106,31 @@ export const AddressForm = styled.form`
 
   input::placeholder {
     color: ${(props) => props.theme['base-label']};
+  }
+
+  input:focus {
+    border: 1px solid ${(props) => props.theme['yellow-dark']};
+  }
+
+  .complement-input {
+    flex: 1;
+    position: relative;
+    input {
+      min-width: 100%;
+    }
+
+    input:not(:placeholder-shown) + span {
+      display: none;
+    }
+
+    span {
+      position: absolute;
+      right: 0.75rem;
+      font-size: 0.75rem;
+      line-height: 130%;
+      font-style: italic;
+      color: ${(props) => props.theme['base-label']};
+    }
   }
 
   div {
