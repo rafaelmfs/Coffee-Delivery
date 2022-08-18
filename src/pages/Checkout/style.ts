@@ -16,19 +16,18 @@ interface CardDefaultOptions {
 export const CheckoutContainer = styled.main`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
 
-  padding: 40px 0;
-  gap: 28px;
+  padding: 2.5rem 0;
+  gap: 1.75rem;
   width: 100%;
 
   .title {
     font-family: 'Baloo 2';
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 130%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     color: ${(props) => props.theme['base-subtitle']};
   }
 `
@@ -36,8 +35,7 @@ export const CheckoutContainer = styled.main`
 export const CardDefault = styled.div<CardDefaultOptions>`
   display: flex;
   flex-direction: column;
-
-  padding: 40px;
+  padding: 2.5rem;
   border-radius: 6px;
   background-color: ${(props) => props.theme['base-card']};
 
@@ -53,15 +51,15 @@ export const FormHeadder = styled.div<FormHeadderProps>`
   align-items: flex-start;
   justify-content: baseline;
 
-  gap: 8px;
+  gap: 0.5rem;
 
   svg {
-    font-size: 22px;
+    font-size: 1.375rem;
     color: ${(props) => props.theme[props.iconColor]};
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 130%;
 
@@ -69,28 +67,57 @@ export const FormHeadder = styled.div<FormHeadderProps>`
   }
 
   p {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 130%;
     font-weight: 400;
 
     color: ${(props) => props.theme['base-text']};
   }
 
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 `
 
 export const FormWrapper = styled.div`
-  width: 640px;
-  height: 591px;
+  width: 40rem;
 
   display: flex;
   flex-direction: column;
 
-  gap: 12px;
+  gap: 0.75rem;
 `
 
 export const AddressForm = styled.form`
-  .address-form-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  input {
+    height: 2.625rem;
+    padding: 0.75rem;
+    flex: 1;
+    border: 1px solid ${(props) => props.theme['base-button']};
+    border-radius: 4px;
+    background: ${(props) => props.theme['base-input']};
+  }
+  input:first-child {
+    max-width: 30%;
+  }
+
+  input::placeholder {
+    color: ${(props) => props.theme['base-label']};
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .state-input {
+      max-width: 12%;
+    }
   }
 `
 

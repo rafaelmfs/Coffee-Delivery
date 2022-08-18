@@ -37,14 +37,20 @@ export function Checkout() {
                 <input type="number" placeholder="Número" name="number" />
                 <input
                   type="text"
-                  placeholder="Complemento"
+                  placeholder="Complemento opcional"
                   name="complement"
+                  className="complement-input"
                 />
               </div>
               <div>
                 <input type="text" placeholder="Bairro" name="district" />
                 <input type="text" placeholder="Cidade" name="city" />
-                <input type="text" placeholder="UF" name="state" />
+                <input
+                  type="text"
+                  placeholder="UF"
+                  name="state"
+                  className="state-input"
+                />
               </div>
             </AddressForm>
           </CardDefault>

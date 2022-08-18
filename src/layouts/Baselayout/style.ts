@@ -6,6 +6,10 @@ export const LayoutContainer = styled.div`
   justify-content: center;
 
   max-width: 1440px;
-  width: calc(100% - 320px);
+  width: 80%;
   margin: 0 auto;
+
+  @media (max-width: 1044px) {
+    font-size: 62.5%;
+  }
 `
