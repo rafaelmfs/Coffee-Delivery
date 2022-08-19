@@ -5,14 +5,6 @@ const ICONS_COLORS = {
   'purple-neutral': 'purple-neutral',
 }
 
-interface FormHeadderProps {
-  iconColor: keyof typeof ICONS_COLORS
-}
-
-interface CardDefaultOptions {
-  radius?: boolean
-}
-
 export const CheckoutContainer = styled.main`
   display: flex;
   align-items: flex-start;
@@ -32,6 +24,10 @@ export const CheckoutContainer = styled.main`
   }
 `
 
+interface CardDefaultOptions {
+  radius?: boolean
+}
+
 export const CardDefault = styled.div<CardDefaultOptions>`
   display: flex;
   flex-direction: column;
@@ -45,6 +41,10 @@ export const CardDefault = styled.div<CardDefaultOptions>`
       border-radius: 6px 44px;
     `}
 `
+
+interface FormHeadderProps {
+  iconColor: keyof typeof ICONS_COLORS
+}
 
 export const FormHeadder = styled.div<FormHeadderProps>`
   display: flex;
@@ -86,67 +86,38 @@ export const FormWrapper = styled.div`
   gap: 0.75rem;
 `
 
-export const AddressForm = styled.form`
+export const PaymentForm = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 12px;
 
-  input {
-    height: 2.625rem;
-    padding: 0.75rem;
-    flex: 1;
-    border: 1px solid ${(props) => props.theme['base-button']};
-    border-radius: 4px;
-    color: ${(props) => props.theme['base-text']};
-    background: ${(props) => props.theme['base-input']};
-  }
-  input:first-child {
-    max-width: 30%;
-  }
-
-  input::placeholder {
-    color: ${(props) => props.theme['base-label']};
-  }
-
-  input:focus {
-    border: 1px solid ${(props) => props.theme['yellow-dark']};
-  }
-
-  .complement-input {
-    flex: 1;
-    position: relative;
-    input {
-      min-width: 100%;
-    }
-
-    input:not(:placeholder-shown) + span {
-      display: none;
-    }
-
-    span {
-      position: absolute;
-      right: 0.75rem;
-      font-size: 0.75rem;
-      line-height: 130%;
-      font-style: italic;
-      color: ${(props) => props.theme['base-label']};
-    }
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    box-sizing: border-box;
-    overflow: hidden;
-
-    .state-input {
-      max-width: 12%;
-    }
+  input:checked + label {
+    border: 1px solid ${(props) => props.theme['purple-neutral']};
+    background: ${(props) => props.theme['purple-light']};
   }
 `
 
-export const PaymentForm = styled.div``
+export const PaymentFormButton = styled.label`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 178.67px;
+  height: 51px;
+  border-radius: 6px;
+  padding: 16px;
+  gap: 8px;
+  background: ${(props) => props.theme['base-button']};
+  border: 1px solid ${(props) => props.theme['base-button']};
+  color: ${(props) => props.theme['base-text']};
+  font-size: 12px;
+  line-height: 160%;
+  font-weight: 400;
+
+  svg {
+    color: ${(props) => props.theme['purple-neutral']};
+    font-size: 1rem;
+  }
+`
 
 export const CoffeeCard = styled.div``

@@ -15,7 +15,7 @@ export function Header() {
           <span>Porto Alegre, RS</span>
         </Location>
         <NavLink to={'/checkout'}>
-          <CartContainer>
+          <CartContainer title="Ir para o carrinho">
             <ShoppingCart weight="fill" />
             <div className="counter">
               <span>3</span>

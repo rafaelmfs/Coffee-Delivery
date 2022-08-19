@@ -5,15 +5,16 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+import { AddressForm } from '../../components/AddressForm'
 import { CoffeeCardCart } from '../../components/CoffeeCardCart'
 import {
-  AddressForm,
   CardDefault,
   CheckoutContainer,
   CoffeeCard,
   FormHeadder,
   FormWrapper,
   PaymentForm,
+  PaymentFormButton,
 } from './style'
 
 export function Checkout() {
@@ -30,31 +31,7 @@ export function Checkout() {
                 <p>Informe o endereço onde deseja receber seu pedido</p>
               </div>
             </FormHeadder>
-            <AddressForm>
-              <input type="number" placeholder="CEP" name="zip-code" />
-              <input type="text" placeholder="Rua" name="street" />
-              <div>
-                <input type="number" placeholder="Número" name="number" />
-                <div className="complement-input">
-                  <input
-                    type="text"
-                    placeholder="Complemento"
-                    name="complement"
-                  />
-                  <span>Opcional</span>
-                </div>
-              </div>
-              <div>
-                <input type="text" placeholder="Bairro" name="district" />
-                <input type="text" placeholder="Cidade" name="city" />
-                <input
-                  type="text"
-                  placeholder="UF"
-                  name="state"
-                  className="state-input"
-                />
-              </div>
-            </AddressForm>
+            <AddressForm />
           </CardDefault>
 
           <CardDefault>
@@ -69,23 +46,45 @@ export function Checkout() {
               </div>
             </FormHeadder>
             <PaymentForm>
-              <form>
-                <label htmlFor="credit-card">
+              <div>
+                <input
+                  type="radio"
+                  id="credit-card"
+                  name="payment-form"
+                  value="credit-card"
+                  hidden
+                />
+                <PaymentFormButton htmlFor="credit-card">
                   <CreditCard weight="regular" />
                   <span>CARTÃO DE CRÉDITO</span>
-                  <input type="radio" id="debit-card" name="payment-form" />
-                </label>
-                <label htmlFor="debit-card">
+                </PaymentFormButton>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="debit-card"
+                  name="payment-form"
+                  value="debit-card"
+                  hidden
+                />
+                <PaymentFormButton htmlFor="debit-card">
                   <Bank weight="regular" />
                   <span>CARTÃO DE DÉBITO</span>
-                  <input type="radio" id="debit-card" name="payment-form" />
-                </label>
-                <label htmlFor="money">
+                </PaymentFormButton>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="money"
+                  name="payment-form"
+                  value="money"
+                  hidden
+                />
+                <PaymentFormButton htmlFor="money">
                   <Money weight="regular" />
                   <span>DINHEIRO</span>
-                  <input type="radio" id="money" name="payment-form" />
-                </label>
-              </form>
+                </PaymentFormButton>
+              </div>
             </PaymentForm>
           </CardDefault>
         </FormWrapper>

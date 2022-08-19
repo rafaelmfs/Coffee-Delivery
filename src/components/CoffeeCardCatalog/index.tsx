@@ -19,7 +19,7 @@ export function CoffeeCardCatalog() {
         </span>
         <div className="actions">
           <Counter />
-          <button className="cart">
+          <button title="Adicionar ao carrinho" className="cart">
             <ShoppingCart weight="fill" />
           </button>
         </div>
