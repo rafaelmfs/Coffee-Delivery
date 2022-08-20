@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components'
-
-const ICONS_COLORS = {
-  'yellow-dark': 'yellow-dark',
-  'purple-neutral': 'purple-neutral',
-}
+import { ICONS_COLORS } from '../../@types/IconColors'
 
 export const CheckoutContainer = styled.main`
   padding: 2.5rem 0;

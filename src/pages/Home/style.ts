@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ICONS_COLORS } from '../../@types/IconColors'
 import background from '../../assets/Background.png'
 
 export const HomeContainer = styled.main`
@@ -55,12 +56,6 @@ export const Items = styled.div`
     align-items: center;
   }
 `
-const ICONS_COLORS = {
-  'yellow-dark': 'yellow-dark',
-  'yellow-neutral': 'yellow-neutral',
-  'base-text': 'base-text',
-  'purple-neutral': 'purple-neutral',
-}
 
 interface IconColors {
   color: keyof typeof ICONS_COLORS

@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'roboto', sans-serif;
     color: ${(props) => props.theme['base-text']};
+    background: ${(props) => props.theme.background};
   }
 
   @media (max-width: 1200px) {
