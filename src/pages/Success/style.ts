@@ -6,21 +6,21 @@ export const SuccessContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 40px 0;
+  padding: 2.5rem 0;
 
   > h1 {
     font-family: 'Baloo 2';
     color: ${(props) => props.theme['yellow-dark']};
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 800;
     line-height: 130%;
   }
 
   > p {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 130%;
     color: ${(props) => props.theme['base-subtitle']};
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
   }
 
   > div {
@@ -31,29 +31,25 @@ export const SuccessContainer = styled.div`
 export const OrderInfoCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 526px;
-  height: 270px;
-  padding: 40px;
-  gap: 32px;
+  width: 32.875rem;
+  height: 16.875rem;
+  padding: 2.5rem;
+  gap: 2rem;
 
   position: relative;
   background: ${(props) => props.theme.background};
-
-  /* border: 1px solid; */
-  /* border-image-slice: 1; */
-  /* border-image-source:  */
   border-radius: 6px 36px;
 
   div.info {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
 
     font-size: 1rem;
     line-height: 130%;
   }
   div.info span {
-    max-width: 310px;
+    max-width: 19.375rem;
   }
 
   ::before {

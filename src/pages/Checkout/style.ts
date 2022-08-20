@@ -100,7 +100,7 @@ export const FormWrapper = styled.div`
 export const PaymentForm = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   input:checked + label {
     border: 1px solid ${(props) => props.theme['purple-neutral']};
@@ -109,7 +109,7 @@ export const PaymentForm = styled.div`
 
   div:last-child {
     flex: 1;
-    max-width: 178.67px;
+    max-width: 11.25rem;
   }
 `
 
@@ -118,10 +118,10 @@ export const PaymentFormButton = styled.label`
   align-items: flex-start;
   justify-content: flex-start;
 
-  height: 51px;
+  height: 3.19rem;
   border-radius: 6px;
-  padding: 16px;
-  gap: 8px;
+  padding: 1rem;
+  gap: 0.5rem;
   background: ${(props) => props.theme['base-button']};
   border: 1px solid ${(props) => props.theme['base-button']};
   color: ${(props) => props.theme['base-text']};
@@ -155,10 +155,10 @@ export const CoffeeCard = styled.div`
 
   li:first-child {
     padding-top: 0;
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
   }
   li {
-    padding: 24px 0;
+    padding: 1.5rem 0;
     border-bottom: 1px solid ${(props) => props.theme['base-button']};
   }
 
@@ -166,14 +166,14 @@ export const CoffeeCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 8px;
+    padding: 0.75rem 0.5rem;
 
-    width: 368px;
-    height: 46px;
+    width: 23rem;
+    height: 2.875rem;
     border-radius: 6px;
     background: ${(props) => props.theme['yellow-neutral']};
     color: ${(props) => props.theme.white};
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     line-height: 160%;
     text-transform: uppercase;
@@ -189,7 +189,7 @@ export const CoffeeCard = styled.div`
 export const ValuesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   color: ${(props) => props.theme['base-text']};
 
   div {
@@ -197,17 +197,17 @@ export const ValuesWrapper = styled.div`
     justify-content: space-between;
 
     .total-title {
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 130%;
     }
 
     .values {
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 130%;
     }
   }
   div:last-child {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 130%;
     font-weight: 700;
     color: ${(props) => props.theme['base-subtitle']};

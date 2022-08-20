@@ -1,7 +1,22 @@
+import { useEffect, useState } from 'react'
 import { CoffeeCardCatalog } from '../../../../components/CoffeeCardCatalog'
+import { Coffee } from '../../../../interfaces/Coffee'
 import { CoffeeContainer, CoffeeList, FilterList } from './style'
 
 export function CoffeeMenu() {
+  const [items, setItems] = useState<Coffee[]>([])
+  // const [filter, setFilter] = useState<Tags | null>()
+
+  useEffect(() => {
+    async function getItems() {
+      const response = await fetch('http://localhost:3000/coffee')
+      const coffeItems: Coffee[] = await response.json()
+      setItems(coffeItems)
+    }
+
+    getItems()
+  }, [])
+
   return (
     <CoffeeContainer>
       <div className="header">
@@ -27,7 +42,9 @@ export function CoffeeMenu() {
         </nav>
       </div>
       <CoffeeList>
-        <CoffeeCardCatalog />
+        {items.map((coffee) => (
+          <CoffeeCardCatalog key={coffee.id} coffeeItem={coffee} />
+        ))}
       </CoffeeList>
     </CoffeeContainer>
   )
