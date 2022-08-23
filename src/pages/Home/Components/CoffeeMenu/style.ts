@@ -29,7 +29,7 @@ export const FilterList = styled.ul`
   gap: 0.5rem;
   list-style: none;
 
-  button {
+  label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +46,12 @@ export const FilterList = styled.ul`
     line-height: 130%;
   }
 
-  button:hover {
+  input:checked + label {
+    background: ${(props) => props.theme['yellow-dark']};
+    color: ${(props) => props.theme.white};
+  }
+
+  label:hover {
     cursor: pointer;
     background: ${(props) => props.theme['yellow-dark']};
     color: ${(props) => props.theme.white};

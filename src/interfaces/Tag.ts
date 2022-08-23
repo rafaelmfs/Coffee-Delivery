@@ -1,4 +1,4 @@
 export interface Tag {
-  name: 'TRADICIONAL' | 'ESPECIAL' | 'COM LEITE' | 'ALCOÓLICO' | 'GELADO'
-  id?: number
+  name: 'tradicional' | 'especial' | 'com leite' | 'alcoólico' | 'gelado'
+  id?: number | string
 }
