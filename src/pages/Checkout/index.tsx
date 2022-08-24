@@ -102,7 +102,23 @@ export function Checkout() {
             <CoffeeCard>
               <ul>
                 <li>
-                  <CoffeeCardCart />
+                  <CoffeeCardCart
+                    amountCoffee={2}
+                    coffeeItem={{
+                      name: 'expresso tradicional',
+                      description:
+                        'O tradicional café feito com água quente e grãos moídos',
+                      tags: [
+                        {
+                          name: 'tradicional',
+                          id: 1,
+                        },
+                      ],
+                      image: 'src/assets/coffee/Expresso.svg',
+                      price: 9.99,
+                      id: 1,
+                    }}
+                  />
                 </li>
               </ul>
               <ValuesWrapper>

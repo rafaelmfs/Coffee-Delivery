@@ -1,4 +1,5 @@
 import { ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
 import { Coffee } from '../../interfaces/Coffee'
 import { Counter } from '../Counter'
 import { Card } from './style'
@@ -8,6 +9,15 @@ interface CoffeeCardCatalogProps {
 }
 
 export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
+  const [amount, setAmount] = useState(1)
+
+  function handleIncrementAmount() {
+    setAmount((state) => state + 1)
+  }
+  function handleDecrementAmount() {
+    amount > 1 && setAmount((state) => state - 1)
+  }
+
   return (
     <Card>
       <img src={coffeeItem.image} alt="" />
@@ -25,7 +35,11 @@ export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
           R$ <strong className="price">{coffeeItem.price}</strong>
         </span>
         <div className="actions">
-          <Counter />
+          <Counter
+            amount={amount}
+            incrementAmount={handleIncrementAmount}
+            decrementAmount={handleDecrementAmount}
+          />
           <button title="Adicionar ao carrinho" className="cart">
             <ShoppingCart weight="fill" />
           </button>

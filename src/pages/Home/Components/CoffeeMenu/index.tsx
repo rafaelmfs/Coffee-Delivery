@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { CoffeeCardCatalog } from '../../../../components/CoffeeCardCatalog'
 import { Coffee } from '../../../../interfaces/Coffee'
 import { Tag } from '../../../../interfaces/Tag'
@@ -13,37 +13,36 @@ const filterTypes = {
 }
 
 export function CoffeeMenu() {
-  const [items, setItems] = useState<Coffee[]>([])
+  const [coffeeList, setCoffeeList] = useState<Coffee[]>([])
   const [filterTags, setFilterTags] = useState<Tag[]>([])
 
   useEffect(() => {
     async function getItemsMenu() {
       const response = await fetch('http://localhost:3000/coffee')
       const coffeItems: Coffee[] = await response.json()
-      setItems(coffeItems)
+      setCoffeeList(coffeItems)
     }
 
     getItemsMenu()
   }, [])
 
-  function handleFilter(event: InputHTMLAttributes<ChangeEvent>) {
-    console.log(event)
+  function handleFilter(event: ChangeEvent<HTMLInputElement>) {
     if (event.target.checked) {
       const filterTag: Tag = {
         name: event.target.value,
-        id: event.id,
+        id: event.target.id,
       }
       setFilterTags((state) => [...state, filterTag])
     } else {
       const newFilterList = filterTags.filter(
-        (filterTag) => filterTag.id !== event.id,
+        (filterTag) => filterTag.id !== event.target.id,
       )
       setFilterTags([...newFilterList])
     }
   }
 
   const tagNames = filterTags.map((tag) => tag.name)
-  const listFiltered = items.filter((coffee) =>
+  const listFiltered = coffeeList.filter((coffee) =>
     coffee.tags.some((tag) => {
       return tagNames.includes(tag.name)
     }),
@@ -118,7 +117,7 @@ export function CoffeeMenu() {
           ? listFiltered.map((coffee) => (
               <CoffeeCardCatalog key={coffee.id} coffeeItem={coffee} />
             ))
-          : items.map((coffee) => (
+          : coffeeList.map((coffee) => (
               <CoffeeCardCatalog key={coffee.id} coffeeItem={coffee} />
             ))}
       </CoffeeList>

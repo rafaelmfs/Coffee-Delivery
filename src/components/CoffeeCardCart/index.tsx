@@ -1,22 +1,47 @@
 import { Trash } from 'phosphor-react'
+import { useState } from 'react'
+import { Coffee } from '../../interfaces/Coffee'
 import { Counter } from '../Counter'
 import { Actions, Card } from './style'
 
-export function CoffeeCardCart() {
+interface CoffeeCardCartProps {
+  amountCoffee: number
+  coffeeItem: Coffee
+}
+
+export function CoffeeCardCart({
+  coffeeItem,
+  amountCoffee,
+}: CoffeeCardCartProps) {
+  const [amount, setAmount] = useState(amountCoffee)
+
+  function handleIncrementAmount() {
+    setAmount((state) => state + 1)
+  }
+  function handleDecrementAmount() {
+    amount > 1 && setAmount((state) => state - 1)
+  }
+
+  const price = coffeeItem.price * amount
+
   return (
     <Card>
-      <img src="/src/assets/coffee/Café com Leite.svg" alt="" />
+      <img src={coffeeItem.image} alt="" />
       <div className="details">
-        <span className="name">Expresso Tradicional</span>
+        <span className="name">{coffeeItem.name}</span>
         <Actions>
-          <Counter />
+          <Counter
+            amount={amount}
+            incrementAmount={handleIncrementAmount}
+            decrementAmount={handleDecrementAmount}
+          />
           <button className="remove">
             <Trash weight="regular" />
             <span>REMOVER</span>
           </button>
         </Actions>
       </div>
-      <strong className="price">R$ 9,90</strong>
+      <strong className="price">R$ {String(price).replace('.', ',')}</strong>
     </Card>
   )
 }
