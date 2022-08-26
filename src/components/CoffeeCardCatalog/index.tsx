@@ -9,13 +9,13 @@ interface CoffeeCardCatalogProps {
 }
 
 export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
-  const [amount, setAmount] = useState(1)
+  const [quantity, setQuantity] = useState(1)
 
-  function handleIncrementAmount() {
-    setAmount((state) => state + 1)
+  function handleIncrementQuantity() {
+    setQuantity((state) => state + 1)
   }
-  function handleDecrementAmount() {
-    amount > 1 && setAmount((state) => state - 1)
+  function handleDecrementQuantity() {
+    quantity > 1 && setQuantity((state) => state - 1)
   }
 
   return (
@@ -36,9 +36,9 @@ export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
         </span>
         <div className="actions">
           <Counter
-            amount={amount}
-            incrementAmount={handleIncrementAmount}
-            decrementAmount={handleDecrementAmount}
+            quantity={quantity}
+            incrementQuantity={handleIncrementQuantity}
+            decrementQuantity={handleDecrementQuantity}
           />
           <button title="Adicionar ao carrinho" className="cart">
             <ShoppingCart weight="fill" />

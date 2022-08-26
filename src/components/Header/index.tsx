@@ -1,9 +1,16 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { CartContext } from '../../contexts/CartContext'
 import { Logo } from './Logo'
 import { Actions, CartContainer, HeaderContainer, Location } from './style'
 
 export function Header() {
+  const cartContext = useContext(CartContext)
+  const { items } = cartContext
+
+  console.log(items.length)
+
   return (
     <HeaderContainer>
       <NavLink to={'/'}>
@@ -17,9 +24,11 @@ export function Header() {
         <NavLink to={'/checkout'}>
           <CartContainer title="Ir para o carrinho">
             <ShoppingCart weight="fill" />
-            <div className="counter">
-              <span>3</span>
-            </div>
+            {items.length >= 1 && (
+              <div className="counter">
+                <span>{items.length}</span>
+              </div>
+            )}
           </CartContainer>
         </NavLink>
       </Actions>

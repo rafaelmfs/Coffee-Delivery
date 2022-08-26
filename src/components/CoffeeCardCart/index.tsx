@@ -1,39 +1,31 @@
 import { Trash } from 'phosphor-react'
 import { useState } from 'react'
-import { Coffee } from '../../interfaces/Coffee'
+import { CartItem } from '../../interfaces/CartItem'
 import { Counter } from '../Counter'
 import { Actions, Card } from './style'
 
-interface CoffeeCardCartProps {
-  amountCoffee: number
-  coffeeItem: Coffee
-}
+export function CoffeeCardCart({ item, numberOfItems }: CartItem) {
+  const [quantity, setQuantity] = useState(numberOfItems)
 
-export function CoffeeCardCart({
-  coffeeItem,
-  amountCoffee,
-}: CoffeeCardCartProps) {
-  const [amount, setAmount] = useState(amountCoffee)
-
-  function handleIncrementAmount() {
-    setAmount((state) => state + 1)
+  function handleIncrementQuantity() {
+    setQuantity((state) => state + 1)
   }
-  function handleDecrementAmount() {
-    amount > 1 && setAmount((state) => state - 1)
+  function handleDecrementQuantity() {
+    quantity > 1 && setQuantity((state) => state - 1)
   }
 
-  const price = coffeeItem.price * amount
+  const price = item.price * quantity
 
   return (
     <Card>
-      <img src={coffeeItem.image} alt="" />
+      <img src={item.image} alt="" />
       <div className="details">
-        <span className="name">{coffeeItem.name}</span>
+        <span className="name">{item.name}</span>
         <Actions>
           <Counter
-            amount={amount}
-            incrementAmount={handleIncrementAmount}
-            decrementAmount={handleDecrementAmount}
+            quantity={quantity}
+            incrementQuantity={handleIncrementQuantity}
+            decrementQuantity={handleDecrementQuantity}
           />
           <button className="remove">
             <Trash weight="regular" />
@@ -41,7 +33,9 @@ export function CoffeeCardCart({
           </button>
         </Actions>
       </div>
-      <strong className="price">R$ {String(price).replace('.', ',')}</strong>
+      <strong className="price">
+        R$ {String(price.toFixed(2)).replace('.', ',')}
+      </strong>
     </Card>
   )
 }

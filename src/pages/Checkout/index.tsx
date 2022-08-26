@@ -17,8 +17,13 @@ import {
   PaymentFormButton,
   ValuesWrapper,
 } from './style'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 
 export function Checkout() {
+  const cartContext = useContext(CartContext)
+  const { items } = cartContext
+
   function onsubmitHandle(event: any) {
     event.preventDefault()
     console.log(event.target.value)
@@ -101,25 +106,15 @@ export function Checkout() {
           <CardDefault radius={true}>
             <CoffeeCard>
               <ul>
-                <li>
-                  <CoffeeCardCart
-                    amountCoffee={2}
-                    coffeeItem={{
-                      name: 'expresso tradicional',
-                      description:
-                        'O tradicional café feito com água quente e grãos moídos',
-                      tags: [
-                        {
-                          name: 'tradicional',
-                          id: 1,
-                        },
-                      ],
-                      image: 'src/assets/coffee/Expresso.svg',
-                      price: 9.99,
-                      id: 1,
-                    }}
-                  />
-                </li>
+                {items.length >= 1 &&
+                  items.map((coffee) => (
+                    <li key={new Date().toISOString()}>
+                      <CoffeeCardCart
+                        numberOfItems={coffee.numberOfItems}
+                        item={coffee.item}
+                      />
+                    </li>
+                  ))}
               </ul>
               <ValuesWrapper>
                 <div>
