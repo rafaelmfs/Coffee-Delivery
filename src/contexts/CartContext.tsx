@@ -1,42 +1,39 @@
-import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import { createContext, ReactNode, useReducer } from 'react'
 import { CartItem } from '../interfaces/CartItem'
 
 interface CartContextItems {
   items: CartItem[]
+  dispach: any
 }
 
 interface CartContextProviderProps {
   children: ReactNode
 }
 
-export const CartContext = createContext<CartContextItems>([])
+export const CartContext = createContext({} as CartContextItems)
 
-function cartItemsReducer(state: CartItem[]) {
-  const item: CartItem = {
-    item: {
-      name: 'expresso tradicional',
-      description: 'O tradicional café feito com água quente e grãos moídos',
-      tags: [
-        {
-          name: 'tradicional',
-          id: 1,
-        },
-      ],
-      image: 'src/assets/coffee/Expresso.svg',
-      price: 9.9,
-      id: 1,
-    },
-    numberOfItems: 2,
+function cartItemsReducer(state: CartItem[], actions: any) {
+  switch (actions.type) {
+    case 'addItem': {
+      return [...state, actions.payload]
+    }
+    case 'removeItem': {
+      const newList = state.filter((item) => item.item.id !== actions.payload)
+      return [...newList]
+    }
+
+    default: {
+      return [...state]
+    }
   }
-  return [item]
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [items, dispach] = useReducer(cartItemsReducer, [])
-  useEffect(() => {
-    dispach()
-  }, [])
+
   return (
-    <CartContext.Provider value={{ items }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ items, dispach }}>
+      {children}
+    </CartContext.Provider>
   )
 }

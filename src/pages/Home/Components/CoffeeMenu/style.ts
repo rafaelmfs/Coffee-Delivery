@@ -62,6 +62,7 @@ export const CoffeeList = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  column-gap: 1rem;
+  row-gap: 2rem;
   margin-top: 3.375rem;
 `

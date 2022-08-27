@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { ICONS_COLORS } from '../../@types/IconColors'
 
 export const CheckoutContainer = styled.main`
-  padding: 2.5rem 0;
+  padding: 2.5rem 10%;
 
   form {
     display: flex;
@@ -149,7 +149,7 @@ export const CoffeeCard = styled.div`
 
   ul {
     list-style: none;
-    max-height: 26rem;
+    max-height: 20rem;
     overflow: auto;
   }
 

@@ -14,12 +14,12 @@ export function Counter({
 }: CounterProps) {
   return (
     <CounterContainer>
-      <button title="Mais 1" onClick={incrementQuantity}>
-        <Plus weight="bold" />
-      </button>
-      <span>{quantity}</span>
       <button title="Menos 1" onClick={decrementQuantity}>
         <Minus weight="bold" />
+      </button>
+      <span>{quantity}</span>
+      <button title="Mais 1" onClick={incrementQuantity}>
+        <Plus weight="bold" />
       </button>
     </CounterContainer>
   )

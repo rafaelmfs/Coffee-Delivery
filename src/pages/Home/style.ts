@@ -7,7 +7,8 @@ export const HomeContainer = styled.main`
   flex-direction: column;
   justify-content: center;
 
-  width: 100%;
+  padding: 0 10%;
+  background: url(${background}) no-repeat;
 `
 
 export const Intro = styled.div`
@@ -16,7 +17,7 @@ export const Intro = styled.div`
   justify-content: space-between;
 
   height: 28rem; /* 544px */
-  background-image: url(${background});
+  /* background-image: url(${background}); */
 
   section {
     max-width: 36.75rem; /* 588px */

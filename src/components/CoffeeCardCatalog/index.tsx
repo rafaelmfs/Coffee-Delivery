@@ -1,5 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 import { Coffee } from '../../interfaces/Coffee'
 import { Counter } from '../Counter'
 import { Card } from './style'
@@ -10,12 +11,21 @@ interface CoffeeCardCatalogProps {
 
 export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
   const [quantity, setQuantity] = useState(1)
+  const cartContext = useContext(CartContext)
+  const { dispach } = cartContext
 
   function handleIncrementQuantity() {
     setQuantity((state) => state + 1)
   }
   function handleDecrementQuantity() {
     quantity > 1 && setQuantity((state) => state - 1)
+  }
+
+  function handleAddCart() {
+    dispach({
+      type: 'addItem',
+      payload: { item: coffeeItem, numberOfItems: quantity },
+    })
   }
 
   return (
@@ -40,7 +50,11 @@ export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
             incrementQuantity={handleIncrementQuantity}
             decrementQuantity={handleDecrementQuantity}
           />
-          <button title="Adicionar ao carrinho" className="cart">
+          <button
+            title="Adicionar ao carrinho"
+            className="cart"
+            onClick={() => handleAddCart()}
+          >
             <ShoppingCart weight="fill" />
           </button>
         </div>

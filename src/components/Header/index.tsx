@@ -9,8 +9,6 @@ export function Header() {
   const cartContext = useContext(CartContext)
   const { items } = cartContext
 
-  console.log(items.length)
-
   return (
     <HeaderContainer>
       <NavLink to={'/'}>

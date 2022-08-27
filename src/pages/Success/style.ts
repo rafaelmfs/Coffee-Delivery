@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import { ICONS_COLORS } from '../../@types/IconColors'
 
 export const SuccessContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
 
-  padding: 2.5rem 0;
+  padding: 2.5rem 10%;
 
   > h1 {
     font-family: 'Baloo 2';

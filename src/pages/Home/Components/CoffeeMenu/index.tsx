@@ -1,6 +1,5 @@
-import { ChangeEvent, useContext, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { CoffeeCardCatalog } from '../../../../components/CoffeeCardCatalog'
-import { CartContext } from '../../../../contexts/CartContext'
 import { Coffee } from '../../../../interfaces/Coffee'
 import { Tag } from '../../../../interfaces/Tag'
 import { CoffeeContainer, CoffeeList, FilterList } from './style'

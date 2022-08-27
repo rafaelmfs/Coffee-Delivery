@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  width: 16rem;
+  width: 15rem;
   height: 20rem;
   padding: 0 1.25rem;
   background-color: ${(props) => props.theme['base-card']};
@@ -79,6 +79,10 @@ export const Card = styled.div`
   img {
     width: 7.5rem;
     height: auto;
-    margin-top: -15%;
+    margin-top: -18%;
+  }
+
+  @media (min-width: 1400px) {
+    width: 16rem;
   }
 `

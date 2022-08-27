@@ -6,6 +6,8 @@ export const HeaderContainer = styled.nav`
   align-items: center;
   max-width: 90rem; /*  1440px */
   height: 6.5rem; /* 104px */
+
+  padding: 0 10%;
 `
 
 export const Actions = styled.div`

@@ -106,7 +106,7 @@ export function Checkout() {
           <CardDefault radius={true}>
             <CoffeeCard>
               <ul>
-                {items.length >= 1 &&
+                {items.length >= 1 ? (
                   items.map((coffee) => (
                     <li key={new Date().toISOString()}>
                       <CoffeeCardCart
@@ -114,7 +114,10 @@ export function Checkout() {
                         item={coffee.item}
                       />
                     </li>
-                  ))}
+                  ))
+                ) : (
+                  <h2>Seu carrinho está vazio!</h2>
+                )}
               </ul>
               <ValuesWrapper>
                 <div>
