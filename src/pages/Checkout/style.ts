@@ -153,6 +153,11 @@ export const CoffeeCard = styled.div`
     overflow: auto;
   }
 
+  .emptyCart {
+    font-family: 'Baloo 2';
+    font-size: 20px;
+  }
+
   li:first-child {
     padding-top: 0;
     padding-bottom: 1.5rem;

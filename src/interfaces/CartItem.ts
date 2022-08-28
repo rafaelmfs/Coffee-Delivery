@@ -1,6 +1,6 @@
 import { Coffee } from './Coffee'
 
 export interface CartItem {
-  item: Coffee
+  coffee: Coffee
   numberOfItems: number
 }

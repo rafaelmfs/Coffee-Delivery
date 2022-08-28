@@ -1,36 +1,36 @@
 import { Trash } from 'phosphor-react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { CartItem } from '../../interfaces/CartItem'
 import { Counter } from '../Counter'
 import { Actions, Card } from './style'
 
-export function CoffeeCardCart({ item, numberOfItems }: CartItem) {
-  const [quantity, setQuantity] = useState(numberOfItems)
+export function CoffeeCardCart({ coffee, numberOfItems }: CartItem) {
   const cartContext = useContext(CartContext)
-  const { dispach } = cartContext
+  const { incrementItemQuantity, decrementItemQuantity, removeItemFromCart } =
+    cartContext
 
   function handleIncrementQuantity() {
-    setQuantity((state) => state + 1)
+    incrementItemQuantity(coffee.id)
   }
   function handleDecrementQuantity() {
-    quantity > 1 && setQuantity((state) => state - 1)
+    decrementItemQuantity(coffee.id)
   }
 
   function handleRemoveButton() {
-    dispach({ type: 'removeItem', payload: item.id })
+    removeItemFromCart(coffee.id)
   }
 
-  const price = item.price * quantity
+  const price = coffee.price * numberOfItems
 
   return (
     <Card>
-      <img src={item.image} alt="" />
+      <img src={coffee.image} alt="" />
       <div className="details">
-        <span className="name">{item.name}</span>
+        <span className="name">{coffee.name}</span>
         <Actions>
           <Counter
-            quantity={quantity}
+            quantity={numberOfItems}
             incrementQuantity={handleIncrementQuantity}
             decrementQuantity={handleDecrementQuantity}
           />

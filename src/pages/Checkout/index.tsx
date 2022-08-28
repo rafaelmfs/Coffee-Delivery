@@ -24,6 +24,12 @@ export function Checkout() {
   const cartContext = useContext(CartContext)
   const { items } = cartContext
 
+  const totalItemsValue = items.reduce((total, item) => {
+    return (total += item.coffee.price * item.numberOfItems)
+  }, 0)
+  const deliveryValue = items.length === 0 ? 0 : 3
+  const totalValue = totalItemsValue + deliveryValue
+
   function onsubmitHandle(event: any) {
     event.preventDefault()
     console.log(event.target.value)
@@ -106,31 +112,40 @@ export function Checkout() {
           <CardDefault radius={true}>
             <CoffeeCard>
               <ul>
-                {items.length >= 1 ? (
+                {items.length === 0 ? (
+                  <strong className="emptyCart">
+                    Seu carrinho está vazio!
+                  </strong>
+                ) : (
                   items.map((coffee) => (
-                    <li key={new Date().toISOString()}>
+                    <li key={coffee.coffee.id}>
                       <CoffeeCardCart
                         numberOfItems={coffee.numberOfItems}
-                        item={coffee.item}
+                        coffee={coffee.coffee}
                       />
                     </li>
                   ))
-                ) : (
-                  <h2>Seu carrinho está vazio!</h2>
                 )}
               </ul>
               <ValuesWrapper>
                 <div>
                   <span className="total-title">Total de itens</span>
-                  <span>R$ 29,70</span>
+                  <span>
+                    R$ {String(totalItemsValue.toFixed(2)).replace('.', ',')}
+                  </span>
+                  {/* <span>R$ 20,00</span> */}
                 </div>
                 <div>
                   <span className="total-title">Entrega</span>
-                  <span className="value">R$ 3,50</span>
+                  <span className="value">
+                    R$ {String(deliveryValue.toFixed(2)).replace('.', ',')}
+                  </span>
                 </div>
                 <div>
                   <span>Total</span>
-                  <span className="value">R$ 33,20</span>
+                  <span className="value">
+                    R$ {String(totalValue.toFixed(2)).replace('.', ',')}
+                  </span>
                 </div>
               </ValuesWrapper>
 

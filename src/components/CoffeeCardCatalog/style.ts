@@ -83,6 +83,6 @@ export const Card = styled.div`
   }
 
   @media (min-width: 1400px) {
-    width: 16rem;
+    width: 16.5rem;
   }
 `
