@@ -6,9 +6,9 @@ import { cartItemsReducer } from '../reducers/CartReducer/cartItem'
 interface CartContextItems {
   items: CartItem[]
   addItemToCart: (cartItem: CartItem) => void
-  incrementItemQuantity: (id: number) => void
-  decrementItemQuantity: (id: number) => void
-  removeItemFromCart: (id: number) => void
+  incrementItemQuantity: (id: string) => void
+  decrementItemQuantity: (id: string) => void
+  removeItemFromCart: (id: string) => void
 }
 
 interface CartContextProviderProps {
@@ -27,16 +27,16 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     })
   }
 
-  function incrementItemQuantity(coffeeId: number) {
-    dispach({ type: actionTypes.INCREMENT_QUANTITY, payload: coffeeId })
+  function incrementItemQuantity(itemCartId: string) {
+    dispach({ type: actionTypes.INCREMENT_QUANTITY, payload: itemCartId })
   }
 
-  function decrementItemQuantity(coffeeId: number) {
-    dispach({ type: actionTypes.DECREMENT_QUANTITY, payload: coffeeId })
+  function decrementItemQuantity(itemCartId: string) {
+    dispach({ type: actionTypes.DECREMENT_QUANTITY, payload: itemCartId })
   }
 
-  function removeItemFromCart(coffeeId: number) {
-    dispach({ type: actionTypes.REMOVE_ITEM_FROM_CART, payload: coffeeId })
+  function removeItemFromCart(itemCartId: string) {
+    dispach({ type: actionTypes.REMOVE_ITEM_FROM_CART, payload: itemCartId })
   }
 
   return (

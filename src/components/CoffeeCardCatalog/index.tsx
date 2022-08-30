@@ -1,5 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
 import { useContext, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import { CartContext } from '../../contexts/CartContext'
 import { CartItem } from '../../interfaces/CartItem'
 import { Coffee } from '../../interfaces/Coffee'
@@ -23,7 +24,11 @@ export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
   }
 
   function handleAddCart() {
-    addItemToCart({ coffee: coffeeItem, numberOfItems: quantity } as CartItem)
+    addItemToCart({
+      coffee: coffeeItem,
+      numberOfItems: quantity,
+      id: uuidv4(),
+    } as CartItem)
   }
 
   return (

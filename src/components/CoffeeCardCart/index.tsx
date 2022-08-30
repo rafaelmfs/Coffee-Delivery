@@ -5,20 +5,20 @@ import { CartItem } from '../../interfaces/CartItem'
 import { Counter } from '../Counter'
 import { Actions, Card } from './style'
 
-export function CoffeeCardCart({ coffee, numberOfItems }: CartItem) {
+export function CoffeeCardCart({ coffee, numberOfItems, id }: CartItem) {
   const cartContext = useContext(CartContext)
   const { incrementItemQuantity, decrementItemQuantity, removeItemFromCart } =
     cartContext
 
   function handleIncrementQuantity() {
-    incrementItemQuantity(coffee.id)
+    incrementItemQuantity(id)
   }
   function handleDecrementQuantity() {
-    decrementItemQuantity(coffee.id)
+    decrementItemQuantity(id)
   }
 
   function handleRemoveButton() {
-    removeItemFromCart(coffee.id)
+    removeItemFromCart(id)
   }
 
   const price = coffee.price * numberOfItems
