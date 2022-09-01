@@ -1,7 +1,12 @@
 import { CartItem } from '../../interfaces/CartItem'
 import { actionTypes } from './actionTypes'
 
-export function cartItemsReducer(state: CartItem[], actions: any) {
+interface ActionsInterface {
+  type: string
+  payload?: any
+}
+
+export function cartItemsReducer(state: CartItem[], actions: ActionsInterface) {
   switch (actions.type) {
     case actionTypes.ADD_ITEM_TO_CART: {
       return [...state, actions.payload]
@@ -48,6 +53,10 @@ export function cartItemsReducer(state: CartItem[], actions: any) {
         return [...newList]
       }
       return [...state]
+    }
+
+    case actionTypes.SET_EMPTY_CART: {
+      return []
     }
 
     default: {

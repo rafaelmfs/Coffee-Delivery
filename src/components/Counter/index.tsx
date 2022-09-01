@@ -14,11 +14,11 @@ export function Counter({
 }: CounterProps) {
   return (
     <CounterContainer>
-      <button title="Menos 1" onClick={decrementQuantity}>
+      <button title="Menos 1" onClick={decrementQuantity} type="button">
         <Minus weight="bold" />
       </button>
       <span>{quantity}</span>
-      <button title="Mais 1" onClick={incrementQuantity}>
+      <button title="Mais 1" onClick={incrementQuantity} type="button">
         <Plus weight="bold" />
       </button>
     </CounterContainer>

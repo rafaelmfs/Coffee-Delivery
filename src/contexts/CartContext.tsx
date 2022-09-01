@@ -9,6 +9,7 @@ interface CartContextItems {
   incrementItemQuantity: (id: string) => void
   decrementItemQuantity: (id: string) => void
   removeItemFromCart: (id: string) => void
+  setEmptyCart: () => void
 }
 
 interface CartContextProviderProps {
@@ -18,25 +19,29 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextItems)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [items, dispach] = useReducer(cartItemsReducer, [])
+  const [items, dispatch] = useReducer(cartItemsReducer, [])
 
   function addItemToCart(cartItem: CartItem) {
-    dispach({
+    dispatch({
       type: actionTypes.ADD_ITEM_TO_CART,
       payload: cartItem,
     })
   }
 
   function incrementItemQuantity(itemCartId: string) {
-    dispach({ type: actionTypes.INCREMENT_QUANTITY, payload: itemCartId })
+    dispatch({ type: actionTypes.INCREMENT_QUANTITY, payload: itemCartId })
   }
 
   function decrementItemQuantity(itemCartId: string) {
-    dispach({ type: actionTypes.DECREMENT_QUANTITY, payload: itemCartId })
+    dispatch({ type: actionTypes.DECREMENT_QUANTITY, payload: itemCartId })
   }
 
   function removeItemFromCart(itemCartId: string) {
-    dispach({ type: actionTypes.REMOVE_ITEM_FROM_CART, payload: itemCartId })
+    dispatch({ type: actionTypes.REMOVE_ITEM_FROM_CART, payload: itemCartId })
+  }
+
+  function setEmptyCart() {
+    dispatch({ type: actionTypes.SET_EMPTY_CART })
   }
 
   return (
@@ -47,6 +52,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         incrementItemQuantity,
         decrementItemQuantity,
         removeItemFromCart,
+        setEmptyCart,
       }}
     >
       {children}

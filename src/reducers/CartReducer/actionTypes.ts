@@ -3,4 +3,5 @@ export const actionTypes = {
   REMOVE_ITEM_FROM_CART: 'removeItem',
   INCREMENT_QUANTITY: 'incrementQuantity',
   DECREMENT_QUANTITY: 'decrementQuantity',
+  SET_EMPTY_CART: 'setEmptyCart',
 }

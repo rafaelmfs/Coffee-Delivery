@@ -36,7 +36,7 @@ export const CheckoutContainer = styled.main`
 `
 
 interface CardDefaultOptions {
-  radius?: boolean
+  radius?: string | boolean
 }
 
 export const CardDefault = styled.div<CardDefaultOptions>`

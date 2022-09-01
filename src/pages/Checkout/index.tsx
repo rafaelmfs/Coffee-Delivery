@@ -21,26 +21,41 @@ import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { FormProvider, useForm } from 'react-hook-form'
 import { CustomerInformation } from '../../interfaces/CustomerInformations'
+import { OrderInformations } from '../../interfaces/OrderInformations'
+import { v4 as uuidv4 } from 'uuid'
+import { useNavigate } from 'react-router-dom'
 
 export function Checkout() {
   const cartContext = useContext(CartContext)
-  const { items } = cartContext
+  const { items, setEmptyCart } = cartContext
   const customerInformationForm = useForm<CustomerInformation>()
+  const { register, handleSubmit } = customerInformationForm
+  const navigate = useNavigate()
 
-  const totalItemsValue = items.reduce((total, item) => {
+  const valueItems = items.reduce((total, item) => {
     return (total += item.coffee.price * item.numberOfItems)
   }, 0)
-  const deliveryValue = items.length === 0 ? 0 : 3
-  const totalValue = totalItemsValue + deliveryValue
+  const valueDelivery = items.length === 0 ? 0 : 3
+  const valueTotal = valueItems + valueDelivery
 
   function onsubmitHandle(event: CustomerInformation) {
-    console.log(event)
+    const newOrder: OrderInformations = {
+      ...event,
+      valueDelivery,
+      valueItems,
+      valueTotal,
+      items,
+      id: uuidv4(),
+      data: new Date().toLocaleString('pt-BR'),
+    }
+    setEmptyCart()
+    navigate('/checkout/success', { state: newOrder })
   }
 
   return (
     <CheckoutContainer>
       <FormProvider {...customerInformationForm}>
-        <form onSubmit={customerInformationForm.handleSubmit(onsubmitHandle)}>
+        <form onSubmit={handleSubmit(onsubmitHandle)}>
           <div className="order-info">
             <h2 className="title">Complete seu pedido</h2>
             <FormWrapper>
@@ -71,9 +86,9 @@ export function Checkout() {
                     <input
                       type="radio"
                       id="credit-card"
-                      name="payment-form"
                       value="credit-card"
                       hidden
+                      {...register('formOfPayment')}
                     />
                     <PaymentFormButton htmlFor="credit-card">
                       <CreditCard weight="regular" />
@@ -84,9 +99,9 @@ export function Checkout() {
                     <input
                       type="radio"
                       id="debit-card"
-                      name="payment-form"
                       value="debit-card"
                       hidden
+                      {...register('formOfPayment')}
                     />
                     <PaymentFormButton htmlFor="debit-card">
                       <Bank weight="regular" />
@@ -97,9 +112,9 @@ export function Checkout() {
                     <input
                       type="radio"
                       id="money"
-                      name="payment-form"
                       value="money"
                       hidden
+                      {...register('formOfPayment')}
                     />
                     <PaymentFormButton htmlFor="money">
                       <Money weight="regular" />
@@ -112,7 +127,7 @@ export function Checkout() {
           </div>
           <div className="cart-info">
             <h2 className="title">Cafés selecionados</h2>
-            <CardDefault radius={true}>
+            <CardDefault radius="true">
               <CoffeeCard>
                 <ul>
                   {items.length === 0 ? (
@@ -135,20 +150,20 @@ export function Checkout() {
                   <div>
                     <span className="total-title">Total de itens</span>
                     <span>
-                      R$ {String(totalItemsValue.toFixed(2)).replace('.', ',')}
+                      R$ {String(valueItems.toFixed(2)).replace('.', ',')}
                     </span>
                     {/* <span>R$ 20,00</span> */}
                   </div>
                   <div>
                     <span className="total-title">Entrega</span>
                     <span className="value">
-                      R$ {String(deliveryValue.toFixed(2)).replace('.', ',')}
+                      R$ {String(valueDelivery.toFixed(2)).replace('.', ',')}
                     </span>
                   </div>
                   <div>
                     <span>Total</span>
                     <span className="value">
-                      R$ {String(totalValue.toFixed(2)).replace('.', ',')}
+                      R$ {String(valueTotal.toFixed(2)).replace('.', ',')}
                     </span>
                   </div>
                 </ValuesWrapper>

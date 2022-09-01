@@ -34,7 +34,7 @@ export function CoffeeCardCart({ coffee, numberOfItems, id }: CartItem) {
             incrementQuantity={handleIncrementQuantity}
             decrementQuantity={handleDecrementQuantity}
           />
-          <button className="remove" onClick={handleRemoveButton}>
+          <button className="remove" onClick={handleRemoveButton} type="button">
             <Trash weight="regular" />
             <span>REMOVER</span>
           </button>

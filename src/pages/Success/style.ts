@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ICONS_COLORS } from '../../@types/IconColors'
 
-export const SuccessContainer = styled.div`
+const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -14,6 +14,13 @@ export const SuccessContainer = styled.div`
     font-weight: 800;
     line-height: 130%;
   }
+`
+
+export const SuccessContainer = styled(BaseContainer)`
+  /* display: flex;
+  flex-direction: column;
+
+  padding: 2.5rem 10%; */
 
   > p {
     font-size: 1.25rem;
@@ -69,6 +76,22 @@ export const OrderInfoCard = styled.div`
 interface IconContainerProps {
   IconColor: keyof typeof ICONS_COLORS
 }
+
+export const WithoutOrderContainer = styled(BaseContainer)`
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: ${(props) => props.theme['base-subtitle']};
+    text-align: center;
+
+    margin: 1rem;
+  }
+`
 
 export const IconContainer = styled.div<IconContainerProps>`
   display: flex;
