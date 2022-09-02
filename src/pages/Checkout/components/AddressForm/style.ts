@@ -14,9 +14,6 @@ export const FormContainer = styled.div`
     color: ${(props) => props.theme['base-text']};
     background: ${(props) => props.theme['base-input']};
   }
-  input:first-child {
-    max-width: 30%;
-  }
 
   input::placeholder {
     color: ${(props) => props.theme['base-label']};
@@ -58,5 +55,28 @@ export const FormContainer = styled.div`
     .state-input {
       max-width: 12%;
     }
+  }
+`
+
+export const ZipCodeContainer = styled.div`
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  max-width: 30%;
+  position: relative;
+
+  .zipCodeLoader {
+    position: absolute;
+    right: 5%;
+    animation: spin 2s infinite linear;
+  }
+  input {
+    width: 100%;
   }
 `

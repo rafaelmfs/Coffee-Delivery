@@ -11,10 +11,9 @@ import {
 
 export function Success() {
   const { state } = useLocation()
-  const { customerAddress, formOfPayment } = state as OrderInformations
-  // const order = state as OrderInformations
+  const order: OrderInformations = state as OrderInformations
 
-  return state ? (
+  return order ? (
     <SuccessContainer>
       <h1>Uhu! Pedido confirmado</h1>
       <p>Agora é só aguardar que logo o café chegará até você</p>
@@ -27,11 +26,12 @@ export function Success() {
             <span>
               Enterga em{' '}
               <b>
-                {customerAddress.streetName}, {customerAddress.number}
+                {order.customerAddress.streetName},{' '}
+                {order.customerAddress.number}
               </b>
               <br />
-              {customerAddress.district} - {customerAddress.city},{' '}
-              {customerAddress.state.toUpperCase()}
+              {order.customerAddress.district} - {order.customerAddress.city},{' '}
+              {order.customerAddress.state.toUpperCase()}
             </span>
           </div>
           <div className="info">
@@ -52,9 +52,9 @@ export function Success() {
               <span>Pagamento na entrega</span>
               <br />
               <b>
-                {formOfPayment === 'credit-card' && 'Cartão de Crédito'}
-                {formOfPayment === 'debit-card' && 'Cartão de Débito'}
-                {formOfPayment === 'money' && 'Dinheiro'}
+                {order.formOfPayment === 'credit-card' && 'Cartão de Crédito'}
+                {order.formOfPayment === 'debit-card' && 'Cartão de Débito'}
+                {order.formOfPayment === 'money' && 'Dinheiro'}
               </b>
             </div>
           </div>
