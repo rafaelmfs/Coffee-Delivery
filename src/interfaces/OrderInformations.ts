@@ -1,11 +1,20 @@
 import { CartItem } from './CartItem'
-import { CustomerInformation } from './CustomerInformations'
 
-export interface OrderInformations extends CustomerInformation {
+export interface OrderInformations {
+  customerAddress: {
+    zipCode: string
+    streetName: string
+    number: number
+    complement?: string
+    district: string
+    city: string
+    state: string
+  }
+  formOfPayment: string
   valueItems: number
   valueDelivery: number
   valueTotal: number
   items: CartItem[]
   id: string
-  data: Date | string
+  date: Date | string
 }

@@ -12,8 +12,13 @@ import {
 export function Success() {
   const { state } = useLocation()
   const order: OrderInformations = state as OrderInformations
+  const isStateEmpty = !state
 
-  return order ? (
+  if (!isStateEmpty) {
+    console.table(order)
+  }
+
+  return !isStateEmpty ? (
     <SuccessContainer>
       <h1>Uhu! Pedido confirmado</h1>
       <p>Agora é só aguardar que logo o café chegará até você</p>

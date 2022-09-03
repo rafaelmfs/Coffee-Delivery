@@ -107,16 +107,29 @@ export const PaymentForm = styled.div`
     background: ${(props) => props.theme['purple-light']};
   }
 
+  label.invalid {
+    border: 1px solid red;
+  }
+
   div:last-child {
     flex: 1;
     max-width: 11.25rem;
   }
 `
 
+export const ErrorMessage = styled.div`
+  display: flex;
+  align-items: start;
+  color: #f00;
+  font-size: 0.875rem;
+  font-style: italic;
+`
 export const PaymentFormButton = styled.label`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+
+  margin-bottom: 0.5rem;
 
   height: 3.19rem;
   border-radius: 6px;
@@ -184,9 +197,14 @@ export const CoffeeCard = styled.div`
     text-transform: uppercase;
     transition: 200ms;
 
-    :hover {
+    :not(:disabled):hover {
       background: ${(props) => props.theme['yellow-dark']};
       cursor: pointer;
+    }
+
+    :disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
   }
 `

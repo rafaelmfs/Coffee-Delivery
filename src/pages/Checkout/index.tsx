@@ -11,6 +11,7 @@ import {
   CardDefault,
   CheckoutContainer,
   CoffeeCard,
+  ErrorMessage,
   FormHeadder,
   FormWrapper,
   PaymentForm,
@@ -20,16 +21,65 @@ import {
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 import { FormProvider, useForm } from 'react-hook-form'
-import { CustomerInformation } from '../../interfaces/CustomerInformations'
 import { OrderInformations } from '../../interfaces/OrderInformations'
 import { v4 as uuidv4 } from 'uuid'
 import { useNavigate } from 'react-router-dom'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+
+const newOrderFormValidationSchema = zod.object({
+  customerAddress: zod.object({
+    zipCode: zod
+      .string()
+      .min(9, { message: 'Digite um CEP válido com 8 dígitos' })
+      .max(9, { message: 'Digite um CEP válido de 8 dígitos' }),
+    streetName: zod
+      .string({
+        required_error: 'Digite o nome da rua',
+        invalid_type_error: 'Digite o nome da rua',
+      })
+      .min(3, { message: 'Digite o nome da rua' }),
+    number: zod.number({
+      required_error: 'Digite o número',
+      invalid_type_error: 'Digite um número válido',
+    }),
+    complement: zod.string().optional(),
+    district: zod
+      .string({ required_error: 'Digite o bairro' })
+      .min(3, { message: 'Digite o bairro' }),
+    city: zod
+      .string({ required_error: 'Digite o nome da cidade' })
+      .min(3, { message: 'Digite o nome da cidade' }),
+    state: zod
+      .string({ required_error: 'Digite um estado válido' })
+      .min(2, {
+        message: 'Digite a sigla do estado',
+      })
+      .max(2, {
+        message: 'Digite a sigla do estado',
+      }),
+  }),
+  formOfPayment: zod.string({
+    required_error: 'Escolha uma forma de pagamento',
+    invalid_type_error: 'Escolha uma forma de pagamento',
+  }),
+})
+
+export type NewOrderFormValidation = zod.infer<
+  typeof newOrderFormValidationSchema
+>
 
 export function Checkout() {
   const cartContext = useContext(CartContext)
   const { items, setEmptyCart } = cartContext
-  const customerInformationForm = useForm<CustomerInformation>()
-  const { register, handleSubmit } = customerInformationForm
+  const customerInformationForm = useForm<NewOrderFormValidation>({
+    resolver: zodResolver(newOrderFormValidationSchema),
+  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = customerInformationForm
   const navigate = useNavigate()
 
   const valueItems = items.reduce((total, item) => {
@@ -37,16 +87,17 @@ export function Checkout() {
   }, 0)
   const valueDelivery = items.length === 0 ? 0 : 3
   const valueTotal = valueItems + valueDelivery
+  const cartIsEmpty = items.length === 0
 
-  function onsubmitHandle(event: CustomerInformation) {
+  function onsubmitHandle(data: NewOrderFormValidation) {
     const newOrder: OrderInformations = {
-      ...event,
+      ...data,
       valueDelivery,
       valueItems,
       valueTotal,
       items,
       id: uuidv4(),
-      data: new Date().toLocaleString('pt-BR'),
+      date: new Date().toLocaleString('pt-BR'),
     }
     setEmptyCart()
     navigate('/checkout/success', { state: newOrder })
@@ -90,7 +141,10 @@ export function Checkout() {
                       hidden
                       {...register('formOfPayment')}
                     />
-                    <PaymentFormButton htmlFor="credit-card">
+                    <PaymentFormButton
+                      htmlFor="credit-card"
+                      className={errors.formOfPayment ? 'invalid' : ''}
+                    >
                       <CreditCard weight="regular" />
                       <span>CARTÃO DE CRÉDITO</span>
                     </PaymentFormButton>
@@ -103,7 +157,10 @@ export function Checkout() {
                       hidden
                       {...register('formOfPayment')}
                     />
-                    <PaymentFormButton htmlFor="debit-card">
+                    <PaymentFormButton
+                      htmlFor="debit-card"
+                      className={errors.formOfPayment ? 'invalid' : ''}
+                    >
                       <Bank weight="regular" />
                       <span>CARTÃO DE DÉBITO</span>
                     </PaymentFormButton>
@@ -116,12 +173,18 @@ export function Checkout() {
                       hidden
                       {...register('formOfPayment')}
                     />
-                    <PaymentFormButton htmlFor="money">
+                    <PaymentFormButton
+                      htmlFor="money"
+                      className={errors.formOfPayment ? 'invalid' : ''}
+                    >
                       <Money weight="regular" />
                       <span>DINHEIRO</span>
                     </PaymentFormButton>
                   </div>
                 </PaymentForm>
+                {errors.formOfPayment && (
+                  <ErrorMessage>{errors.formOfPayment.message}</ErrorMessage>
+                )}
               </CardDefault>
             </FormWrapper>
           </div>
@@ -130,7 +193,7 @@ export function Checkout() {
             <CardDefault radius="true">
               <CoffeeCard>
                 <ul>
-                  {items.length === 0 ? (
+                  {cartIsEmpty ? (
                     <strong className="emptyCart">
                       Seu carrinho está vazio!
                     </strong>
@@ -152,7 +215,6 @@ export function Checkout() {
                     <span>
                       R$ {String(valueItems.toFixed(2)).replace('.', ',')}
                     </span>
-                    {/* <span>R$ 20,00</span> */}
                   </div>
                   <div>
                     <span className="total-title">Entrega</span>
@@ -168,7 +230,11 @@ export function Checkout() {
                   </div>
                 </ValuesWrapper>
 
-                <button className="button-confirm" type="submit">
+                <button
+                  className="button-confirm"
+                  type="submit"
+                  disabled={cartIsEmpty}
+                >
                   CONFIRMAR PEDIDO
                 </button>
               </CoffeeCard>

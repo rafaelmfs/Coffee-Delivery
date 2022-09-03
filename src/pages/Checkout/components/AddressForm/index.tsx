@@ -1,10 +1,16 @@
-import { Spinner } from 'phosphor-react'
-import { useState } from 'react'
+import { Spinner, WarningCircle } from 'phosphor-react'
+import { ChangeEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { FormContainer, ZipCodeContainer } from './style'
+import { NewOrderFormValidation } from '../..'
+import { ErrorMessage } from '../../style'
+import { FormContainer, ZipCodeContainer, ErrorContainer } from './style'
 
 export function AddressForm() {
-  const { register, setValue } = useFormContext()
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext<NewOrderFormValidation>()
   const [zipCode, setZipCode] = useState('')
   const [isZipCodeLoading, setIsZipCodeLoading] = useState(false)
 
@@ -25,15 +31,12 @@ export function AddressForm() {
       getAddressFromZipCode().then(() => setIsZipCodeLoading(false))
   }
 
-  function zipCodeFomat(event) {
+  function zipCodeFomat(event: ChangeEvent<HTMLInputElement>) {
     let zipCodeFormated = event.target.value.replace(/\D/g, '')
     zipCodeFormated = zipCodeFormated.replace(/^(\d{5})(\d)/, '$1-$2')
 
     setZipCode(() => zipCodeFormated)
-    event.target.value = zipCodeFormated
   }
-
-  console.log(zipCode)
 
   return (
     <FormContainer>
@@ -41,12 +44,17 @@ export function AddressForm() {
         <input
           type="text"
           placeholder="CEP"
+          value={zipCode}
+          maxLength={9}
+          className={
+            errors.customerAddress?.zipCode
+              ? 'input-medium invalid'
+              : 'input-medium'
+          }
           {...register('customerAddress.zipCode', {
             onBlur: () => handleZipCodeBlur(),
             onChange: (event) => zipCodeFomat(event),
-            value: zipCode,
             disabled: isZipCodeLoading,
-            maxLength: 9,
           })}
         />
         {isZipCodeLoading && (
@@ -56,6 +64,7 @@ export function AddressForm() {
       <input
         type="text"
         placeholder="Rua"
+        className={errors.customerAddress?.streetName ? 'invalid' : ''}
         {...register('customerAddress.streetName', {
           disabled: isZipCodeLoading,
         })}
@@ -64,6 +73,11 @@ export function AddressForm() {
         <input
           type="number"
           placeholder="Número"
+          className={
+            errors.customerAddress?.number
+              ? 'input-medium invalid'
+              : 'input-medium'
+          }
           {...register('customerAddress.number', { valueAsNumber: true })}
         />
         <div className="complement-input">
@@ -79,6 +93,11 @@ export function AddressForm() {
         <input
           type="text"
           placeholder="Bairro"
+          className={
+            errors.customerAddress?.district
+              ? 'input-medium invalid'
+              : 'input-medium'
+          }
           {...register('customerAddress.district', {
             disabled: isZipCodeLoading,
           })}
@@ -86,6 +105,11 @@ export function AddressForm() {
         <input
           type="text"
           placeholder="Cidade"
+          className={
+            errors.customerAddress?.city
+              ? 'input-medium invalid'
+              : 'input-medium'
+          }
           {...register('customerAddress.city', {
             disabled: isZipCodeLoading,
           })}
@@ -93,11 +117,54 @@ export function AddressForm() {
         <input
           type="text"
           placeholder="UF"
-          className="state-input"
+          className={
+            errors.customerAddress?.state
+              ? 'state-input invalid'
+              : 'state-input'
+          }
           {...register('customerAddress.state', {
             disabled: isZipCodeLoading,
           })}
         />
+      </div>
+
+      <div className="errorContainer">
+        {errors.customerAddress?.zipCode && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            <p>{errors.customerAddress?.zipCode.message}</p>
+          </ErrorMessage>
+        )}
+        {errors.customerAddress?.streetName && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            {errors.customerAddress?.streetName.message}
+          </ErrorMessage>
+        )}
+        {errors.customerAddress?.number && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            {errors.customerAddress?.number.message}
+          </ErrorMessage>
+        )}
+        {errors.customerAddress?.district && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            {errors.customerAddress?.district.message}
+          </ErrorMessage>
+        )}
+        {errors.customerAddress?.city && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            {errors.customerAddress?.city.message}
+          </ErrorMessage>
+        )}
+        {errors.customerAddress?.state && (
+          <ErrorMessage>
+            <WarningCircle weight="bold" />
+            {errors.customerAddress?.state.message}
+          </ErrorMessage>
+        )}
       </div>
     </FormContainer>
   )

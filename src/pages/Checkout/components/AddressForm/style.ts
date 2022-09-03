@@ -22,6 +22,13 @@ export const FormContainer = styled.div`
   input:focus {
     border: 1px solid ${(props) => props.theme['yellow-dark']};
   }
+  input.input-medium {
+    max-width: 12.5rem;
+  }
+
+  .invalid {
+    border: 1px solid red;
+  }
 
   .complement-input {
     flex: 1;
@@ -56,6 +63,13 @@ export const FormContainer = styled.div`
       max-width: 12%;
     }
   }
+
+  div.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `
 
 export const ZipCodeContainer = styled.div`
@@ -67,9 +81,11 @@ export const ZipCodeContainer = styled.div`
       transform: rotate(360deg);
     }
   }
-
-  max-width: 30%;
+  max-width: 12.5rem;
+  width: 40%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   .zipCodeLoader {
     position: absolute;
