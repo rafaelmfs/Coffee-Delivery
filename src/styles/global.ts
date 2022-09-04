@@ -12,6 +12,9 @@ export const GlobalStyles = createGlobalStyle`
     background: transparent;
     border: 0;
     outline: none;
+
+    font-family: 'roboto', sans-serif;
+
   }
 
   body{

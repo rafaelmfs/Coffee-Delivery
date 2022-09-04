@@ -129,40 +129,10 @@ export function AddressForm() {
       </div>
 
       <div className="errorContainer">
-        {errors.customerAddress?.zipCode && (
+        {errors.customerAddress && (
           <ErrorMessage>
             <WarningCircle weight="bold" />
-            <p>{errors.customerAddress?.zipCode.message}</p>
-          </ErrorMessage>
-        )}
-        {errors.customerAddress?.streetName && (
-          <ErrorMessage>
-            <WarningCircle weight="bold" />
-            {errors.customerAddress?.streetName.message}
-          </ErrorMessage>
-        )}
-        {errors.customerAddress?.number && (
-          <ErrorMessage>
-            <WarningCircle weight="bold" />
-            {errors.customerAddress?.number.message}
-          </ErrorMessage>
-        )}
-        {errors.customerAddress?.district && (
-          <ErrorMessage>
-            <WarningCircle weight="bold" />
-            {errors.customerAddress?.district.message}
-          </ErrorMessage>
-        )}
-        {errors.customerAddress?.city && (
-          <ErrorMessage>
-            <WarningCircle weight="bold" />
-            {errors.customerAddress?.city.message}
-          </ErrorMessage>
-        )}
-        {errors.customerAddress?.state && (
-          <ErrorMessage>
-            <WarningCircle weight="bold" />
-            {errors.customerAddress?.state.message}
+            <p>Preencha os campos obrigatórios!</p>
           </ErrorMessage>
         )}
       </div>
