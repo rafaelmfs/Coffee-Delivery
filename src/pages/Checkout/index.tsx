@@ -209,34 +209,39 @@ export function Checkout() {
                     ))
                   )}
                 </ul>
-                <ValuesWrapper>
-                  <div>
-                    <span className="total-title">Total de itens</span>
-                    <span>
-                      R$ {String(valueItems.toFixed(2)).replace('.', ',')}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="total-title">Entrega</span>
-                    <span className="value">
-                      R$ {String(valueDelivery.toFixed(2)).replace('.', ',')}
-                    </span>
-                  </div>
-                  <div>
-                    <span>Total</span>
-                    <span className="value">
-                      R$ {String(valueTotal.toFixed(2)).replace('.', ',')}
-                    </span>
-                  </div>
-                </ValuesWrapper>
+                {!cartIsEmpty && (
+                  <>
+                    <ValuesWrapper>
+                      <div>
+                        <span className="total-title">Total de itens</span>
+                        <span>
+                          R$ {String(valueItems.toFixed(2)).replace('.', ',')}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="total-title">Entrega</span>
+                        <span className="value">
+                          R${' '}
+                          {String(valueDelivery.toFixed(2)).replace('.', ',')}
+                        </span>
+                      </div>
+                      <div>
+                        <span>Total</span>
+                        <span className="value">
+                          R$ {String(valueTotal.toFixed(2)).replace('.', ',')}
+                        </span>
+                      </div>
+                    </ValuesWrapper>
 
-                <button
-                  className="button-confirm"
-                  type="submit"
-                  disabled={cartIsEmpty}
-                >
-                  CONFIRMAR PEDIDO
-                </button>
+                    <button
+                      className="button-confirm"
+                      type="submit"
+                      disabled={cartIsEmpty}
+                    >
+                      CONFIRMAR PEDIDO
+                    </button>
+                  </>
+                )}
               </CoffeeCard>
             </CardDefault>
           </div>

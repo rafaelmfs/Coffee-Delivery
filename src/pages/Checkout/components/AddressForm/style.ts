@@ -6,6 +6,7 @@ export const FormContainer = styled.div`
   gap: 1rem;
 
   input {
+    width: 100%;
     height: 2.625rem;
     padding: 0.75rem;
     flex: 1;
@@ -22,16 +23,15 @@ export const FormContainer = styled.div`
   input:focus {
     border: 1px solid ${(props) => props.theme['yellow-dark']};
   }
-  input.input-medium {
-    max-width: 12.5rem;
-  }
 
   .invalid {
     border: 1px solid red;
   }
 
   .complement-input {
+    width: 100%;
     flex: 1;
+    justify-content: center;
     position: relative;
     input {
       min-width: 100%;
@@ -53,15 +53,12 @@ export const FormContainer = styled.div`
 
   div {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.75rem;
 
     box-sizing: border-box;
     overflow: hidden;
-
-    .state-input {
-      max-width: 12%;
-    }
   }
 
   div.errorContainer {
@@ -69,6 +66,20 @@ export const FormContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  @media (min-width: 700px) {
+    div {
+      flex-direction: row;
+      align-items: center;
+    }
+    .state-input {
+      max-width: 3.75rem;
+      min-width: 12%;
+    }
+    input.input-medium {
+      max-width: 12.5rem;
+    }
   }
 `
 
@@ -81,11 +92,10 @@ export const ZipCodeContainer = styled.div`
       transform: rotate(360deg);
     }
   }
-  max-width: 12.5rem;
-  width: 40%;
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   .zipCodeLoader {
     position: absolute;
@@ -94,5 +104,10 @@ export const ZipCodeContainer = styled.div`
   }
   input {
     width: 100%;
+  }
+
+  @media (min-width: 700px) {
+    max-width: 12.5rem;
+    width: 40%;
   }
 `

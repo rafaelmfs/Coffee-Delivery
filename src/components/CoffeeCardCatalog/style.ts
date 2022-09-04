@@ -36,12 +36,17 @@ export const Card = styled.div`
     font-size: 1.25rem;
     line-height: 130%;
     color: ${(props) => props.theme['base-subtitle']};
+    margin-bottom: -0.5rem;
+
+    text-transform: capitalize;
   }
   .description {
     font-family: 'Roboto';
     font-size: 0.875rem;
     font-weight: 400;
     color: ${(props) => props.theme['base-label']};
+
+    margin-bottom: 1rem;
   }
   .buy-area {
     display: flex;

@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { CartContext } from '../../contexts/CartContext'
 import { Logo } from './Logo'
@@ -17,7 +17,7 @@ export function Header() {
       <Actions>
         <Location>
           <MapPin weight="fill" />
-          <span>Porto Alegre, RS</span>
+          <span>Belo Horizonte, MG</span>
         </Location>
         <NavLink to={'/checkout'}>
           <CartContainer title="Ir para o carrinho">

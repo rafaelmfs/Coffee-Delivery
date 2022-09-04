@@ -3,6 +3,7 @@ import { CoffeeCardCatalog } from '../../../../components/CoffeeCardCatalog'
 import { Coffee } from '../../../../interfaces/Coffee'
 import { Tag } from '../../../../interfaces/Tag'
 import { CoffeeContainer, CoffeeList, FilterList } from './style'
+import { coffee } from '../../../../../items.json'
 
 const filterTypes = {
   TRADICIONAL: 'tradicional',
@@ -17,13 +18,7 @@ export function CoffeeMenu() {
   const [filterTags, setFilterTags] = useState<Tag[]>([])
 
   useEffect(() => {
-    async function getItemsMenu() {
-      const response = await fetch('http://localhost:3000/coffee')
-      const coffeItems: Coffee[] = await response.json()
-      setCoffeeList(coffeItems)
-    }
-
-    getItemsMenu()
+    setCoffeeList(coffee)
   }, [])
 
   function handleFilter(event: ChangeEvent<HTMLInputElement>) {

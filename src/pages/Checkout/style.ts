@@ -7,20 +7,14 @@ export const CheckoutContainer = styled.main`
   form {
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
     gap: 1.75rem;
     width: 100%;
   }
 
-  .order-info {
+  form > div {
     display: flex;
     flex-direction: column;
-    width: calc(60% - 1.75rem);
-  }
-
-  .cart-info {
-    display: flex;
-    flex-direction: column;
-
     flex: 1;
   }
 
@@ -33,6 +27,15 @@ export const CheckoutContainer = styled.main`
     margin-bottom: 1rem;
     color: ${(props) => props.theme['base-subtitle']};
   }
+
+  @media (min-width: 900px) {
+    form {
+      flex-direction: row;
+    }
+    .order-info {
+      width: calc(60% - 1.75rem);
+    }
+  } ;
 `
 
 interface CardDefaultOptions {
@@ -97,8 +100,17 @@ export const FormWrapper = styled.div`
   gap: 0.75rem;
 `
 
+export const ErrorMessage = styled.div`
+  display: flex;
+  align-items: start;
+  color: #f00;
+  font-size: 0.875rem;
+  font-style: italic;
+`
+
 export const PaymentForm = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.75rem;
 
@@ -111,22 +123,23 @@ export const PaymentForm = styled.div`
     border: 1px solid red;
   }
 
-  div:last-child {
-    flex: 1;
-    max-width: 11.25rem;
+  div {
+    width: 100%;
+    padding: 4px 0;
   }
-`
 
-export const ErrorMessage = styled.div`
-  display: flex;
-  align-items: start;
-  color: #f00;
-  font-size: 0.875rem;
-  font-style: italic;
+  @media (min-width: 600px) {
+    flex-direction: row;
+
+    div:last-child {
+      flex: 1;
+      max-width: 11.25rem;
+    }
+  }
 `
 export const PaymentFormButton = styled.label`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 
   margin-bottom: 0.5rem;
@@ -186,7 +199,7 @@ export const CoffeeCard = styled.div`
     align-items: center;
     padding: 0.75rem 0.5rem;
 
-    width: 23rem;
+    width: 100%;
     height: 2.875rem;
     border-radius: 6px;
     background: ${(props) => props.theme['yellow-neutral']};

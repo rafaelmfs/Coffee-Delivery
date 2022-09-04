@@ -25,9 +25,9 @@ export const GlobalStyles = createGlobalStyle`
    } 
   }
 
-  @media (max-width: 960px){
+  /* @media (max-width: 960px){
     html{
     font-size: 62.5%;
    } 
-  }
+  } */
 `

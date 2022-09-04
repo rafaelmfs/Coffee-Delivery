@@ -17,7 +17,6 @@ export const Intro = styled.div`
   justify-content: space-between;
 
   height: 28rem; /* 544px */
-  /* background-image: url(${background}); */
 
   section {
     max-width: 36.75rem; /* 588px */

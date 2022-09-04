@@ -17,11 +17,6 @@ const BaseContainer = styled.div`
 `
 
 export const SuccessContainer = styled(BaseContainer)`
-  /* display: flex;
-  flex-direction: column;
-
-  padding: 2.5rem 10%; */
-
   > p {
     font-size: 1.25rem;
     line-height: 130%;

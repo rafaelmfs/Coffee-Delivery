@@ -8,8 +8,8 @@
         "id": 1
       }],
       "image": "src/assets/coffee/Expresso.svg",
-      "price": "9.90",
-      "id":"1"
+      "price": 9.90,
+      "id":1
     },
     {
       "name": "Expresso Americano", 
@@ -19,8 +19,8 @@
         "id": 1
       }],
       "image": "src/assets/coffee/Americano.svg",
-      "price": "9.90",
-      "id":"2"
+      "price": 9.90,
+      "id":2
     },
     {
       "name": "Expresso Cremoso", 
@@ -30,8 +30,8 @@
         "id": 1
       }],
       "image": "src/assets/coffee/Expresso-Cremoso.svg",
-      "price": "9.90",
-      "id":"3"
+      "price": 9.90,
+      "id":3
     },
     {
       "name": "Expresso Gelado", 
@@ -46,8 +46,8 @@
         }
       ],
       "image": "src/assets/coffee/Cafe-Gelado.svg",
-      "price": "9.90",
-      "id":"4"
+      "price": 9.90,
+      "id":4
     },
     {
       "name": "Café com Leite", 
@@ -61,8 +61,8 @@
           "id": 2
         }],
       "image": "src/assets/coffee/Cafe-com-Leite.svg",
-      "price": "9.90",
-      "id":"5"
+      "price": 9.90,
+      "id":5
     },
     {
       "name": "Latte", 
@@ -75,8 +75,8 @@
           "id": 2
         }],
       "image": "src/assets/coffee/Latte.svg",
-      "price": "9.90",
-      "id":"6"
+      "price": 9.90,
+      "id":6
     },
     {
       "name": "Capuccino", 
@@ -89,8 +89,8 @@
         "id": 2
       }],
       "image": "src/assets/coffee/Capuccino.svg",
-      "price": "9.90",
-      "id":"7"
+      "price": 9.90,
+      "id":7
     },
     {
       "name": "Macchiato", 
@@ -103,8 +103,8 @@
         "id": 2
       }],
       "image": "src/assets/coffee/Macchiato.svg",
-      "price": "9.90",
-      "id":"8"
+      "price": 9.90,
+      "id":8
     },
     {
       "name": "Mocaccino", 
@@ -117,8 +117,8 @@
         "id": 2
       }],
       "image": "src/assets/coffee/Mochaccino.svg",
-      "price": "9.90",
-      "id":"9"
+      "price": 9.90,
+      "id":9
     },
     {
       "name": "Chocolate Quente", 
@@ -131,8 +131,8 @@
         "id": 2
       }],
       "image": "src/assets/coffee/Chocolate-Quente.svg",
-      "price": "9.90",
-      "id":"10"
+      "price": 9.90,
+      "id":10
     },
     {
       "name": "Cubano", 
@@ -149,8 +149,8 @@
           "id": 3
         }],
       "image": "src/assets/coffee/Cubano.svg",
-      "price": "9.90",
-      "id":"11"
+      "price": 9.90,
+      "id":11
     },
     {
       "name": "Havaiano", 
@@ -160,8 +160,8 @@
           "id": 1
         }],
       "image": "src/assets/coffee/Havaiano.svg",
-      "price": "9.90",
-      "id":"12"
+      "price": 9.90,
+      "id":12
     },
     {
       "name": "Árabe", 
@@ -171,8 +171,8 @@
           "id": 1
        }],
       "image": "src/assets/coffee/Arabe.svg",
-      "price": "9.90",
-      "id":"13"
+      "price": 9.90,
+      "id":13
     },
     {
       "name": "Irlandês", 
@@ -185,8 +185,8 @@
           "id": 2
         }],
       "image": "src/assets/coffee/Irlandes.svg",
-      "price": "9.90",
-      "id":"14"
+      "price": 9.90,
+      "id":14
     }
   ]
 }

@@ -45,7 +45,10 @@ export function CoffeeCardCatalog({ coffeeItem }: CoffeeCardCatalogProps) {
       <p className="description">{coffeeItem.description}</p>
       <div className="buy-area">
         <span>
-          R$ <strong className="price">{coffeeItem.price}</strong>
+          R${' '}
+          <strong className="price">
+            {String(coffeeItem.price.toFixed(2)).replace('.', ',')}
+          </strong>
         </span>
         <div className="actions">
           <Counter

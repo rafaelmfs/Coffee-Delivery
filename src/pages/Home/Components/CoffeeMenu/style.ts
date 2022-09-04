@@ -59,14 +59,16 @@ export const FilterList = styled.ul`
 `
 
 export const CoffeeList = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   column-gap: 1rem;
   row-gap: 2.5rem;
   margin-top: 3.375rem;
 
   @media (min-width: 1400px) {
     column-gap: 2rem;
+  }
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
   }
 `

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { NewOrderFormValidation } from '../..'
 import { ErrorMessage } from '../../style'
-import { FormContainer, ZipCodeContainer, ErrorContainer } from './style'
+import { FormContainer, ZipCodeContainer } from './style'
 
 export function AddressForm() {
   const {
