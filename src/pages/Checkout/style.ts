@@ -130,11 +130,7 @@ export const PaymentForm = styled.div`
 
   @media (min-width: 600px) {
     flex-direction: row;
-
-    div:last-child {
-      flex: 1;
-      max-width: 11.25rem;
-    }
+    flex: 1;
   }
 `
 export const PaymentFormButton = styled.label`
@@ -143,10 +139,10 @@ export const PaymentFormButton = styled.label`
   justify-content: flex-start;
 
   margin-bottom: 0.5rem;
-
+  flex: 1;
   height: 3.19rem;
   border-radius: 6px;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   gap: 0.5rem;
   background: ${(props) => props.theme['base-button']};
   border: 1px solid ${(props) => props.theme['base-button']};
@@ -165,6 +161,10 @@ export const PaymentFormButton = styled.label`
   svg {
     color: ${(props) => props.theme['purple-neutral']};
     font-size: 1rem;
+  }
+
+  @media (min-width: 1300px) {
+    width: 11rem;
   }
 `
 
