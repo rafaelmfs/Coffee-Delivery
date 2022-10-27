@@ -7,7 +7,7 @@
         "name":"tradicional" ,
         "id": 1
       }],
-      "image": "./src/assets/coffee/Expresso.svg",
+      "image": "coffee/Expresso.svg",
       "price": 9.90,
       "id":1
     },
@@ -18,7 +18,7 @@
         "name":"tradicional" ,
         "id": 1
       }],
-      "image": "./src/assets/coffee/Americano.svg",
+      "image": "coffee/Americano.svg",
       "price": 9.90,
       "id":2
     },
@@ -29,7 +29,7 @@
         "name":"tradicional" ,
         "id": 1
       }],
-      "image": "./src/assets/coffee/Expresso-Cremoso.svg",
+      "image": "coffee/Expresso-Cremoso.svg",
       "price": 9.90,
       "id":3
     },
@@ -45,7 +45,7 @@
           "id": 2
         }
       ],
-      "image": "./src/assets/coffee/Cafe-Gelado.svg",
+      "image": "coffee/Cafe-Gelado.svg",
       "price": 9.90,
       "id":4
     },
@@ -60,7 +60,7 @@
           "name":"com leite" ,
           "id": 2
         }],
-      "image": "./src/assets/coffee/Cafe-com-Leite.svg",
+      "image": "coffee/Cafe-com-Leite.svg",
       "price": 9.90,
       "id":5
     },
@@ -74,7 +74,7 @@
           "name": "com leite" ,
           "id": 2
         }],
-      "image": "./src/assets/coffee/Latte.svg",
+      "image": "coffee/Latte.svg",
       "price": 9.90,
       "id":6
     },
@@ -88,7 +88,7 @@
         "name": "com leite" ,
         "id": 2
       }],
-      "image": "./src/assets/coffee/Capuccino.svg",
+      "image": "coffee/Capuccino.svg",
       "price": 9.90,
       "id":7
     },
@@ -102,7 +102,7 @@
         "name": "com leite" ,
         "id": 2
       }],
-      "image": "./src/assets/coffee/Macchiato.svg",
+      "image": "coffee/Macchiato.svg",
       "price": 9.90,
       "id":8
     },
@@ -116,7 +116,7 @@
         "name": "com leite" ,
         "id": 2
       }],
-      "image": "./src/assets/coffee/Mochaccino.svg",
+      "image": "coffee/Mochaccino.svg",
       "price": 9.90,
       "id":9
     },
@@ -130,7 +130,7 @@
         "name": "com leite" ,
         "id": 2
       }],
-      "image": "./src/assets/coffee/Chocolate-Quente.svg",
+      "image": "coffee/Chocolate-Quente.svg",
       "price": 9.90,
       "id":10
     },
@@ -148,7 +148,7 @@
           "name": "gelado" ,
           "id": 3
         }],
-      "image": "./src/assets/coffee/Cubano.svg",
+      "image": "coffee/Cubano.svg",
       "price": 9.90,
       "id":11
     },
@@ -159,7 +159,7 @@
           "name":"especial" ,
           "id": 1
         }],
-      "image": "./src/assets/coffee/Havaiano.svg",
+      "image": "coffee/Havaiano.svg",
       "price": 9.90,
       "id":12
     },
@@ -170,7 +170,7 @@
           "name":"especial" ,
           "id": 1
        }],
-      "image": "./src/assets/coffee/Arabe.svg",
+      "image": "coffee/Arabe.svg",
       "price": 9.90,
       "id":13
     },
@@ -184,7 +184,7 @@
           "name": "alcoólico" ,
           "id": 2
         }],
-      "image": "./src/assets/coffee/Irlandes.svg",
+      "image": "coffee/Irlandes.svg",
       "price": 9.90,
       "id":14
     }
