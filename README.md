@@ -3,7 +3,7 @@
 ![Capa](https://user-images.githubusercontent.com/80429145/188321299-894ea60e-a48b-4cd9-b668-0921f6ae20dc.png)
 
 
-### Projeto para aprendizado de ReactJS
+### Projeto de estudo de ReactJS
 
 #### Feito com
 
