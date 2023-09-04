@@ -71,7 +71,7 @@ export function Success() {
     <WithoutOrderContainer>
       <h1>Ops... Algo inesperado aconteceu!</h1>
       <p>
-        Verifcamos que você ainda não tem nenhum pedido, clique para{' '}
+        Verificamos que você ainda não tem nenhum pedido, clique para{' '}
         <Link to={'/'}>voltar a página inicial</Link> ou{' '}
         <Link to={'/checkout'}>ir para o carrinho</Link>
       </p>

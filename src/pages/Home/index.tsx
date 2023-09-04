@@ -18,7 +18,7 @@ export function Home() {
               <Icon color="yellow-dark">
                 <ShoppingCart weight="fill" />
               </Icon>
-              <span>Compra simles e segura</span>
+              <span>Compra simples e segura</span>
             </div>
             <div>
               <Icon color="base-text">
